@@ -67,12 +67,18 @@ echo "CONFIG_LIBCURL_PROXY=n" >> .config
 echo "CONFIG_PACKAGE_luci-theme-bootstrap=n" >> .config
 echo "CONFIG_PACKAGE_luci-theme-argne=y" >> .config 
 
-# 1. .......
-rm -rf staging_dir/target-mipsel_24kc_musl/root-ramips/usr/share/xray/*.dat
-
-# 2. ........
-find staging_dir/ -name "xray" -type f -exec upx --ultra-brute {} \;
-
-# 3. ........
+# Remove manual 
 rm -rf staging_dir/target-mipsel_24kc_musl/root-ramips/usr/share/doc
 rm -rf staging_dir/target-mipsel_24kc_musl/root-ramips/usr/share/man
+
+# remove 
+rm -f staging_dir/target-mipsel_24kc_musl/root-ramips/usr/bin/coreutils
+rm -f staging_dir/target-mipsel_24kc_musl/root-ramips/usr/bin/base64
+rm -f staging_dir/target-mipsel_24kc_musl/root-ramips/usr/bin/nohup
+
+# remove Geodata Xray
+rm -rf staging_dir/target-mipsel_24kc_musl/root-ramips/usr/share/xray/*.dat
+
+# compress with UPX 
+find staging_dir/target-mipsel_24kc_musl/root-ramips/usr/bin/ -name "xray" -exec upx --ultra-brute {} \;
+
