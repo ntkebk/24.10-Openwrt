@@ -67,4 +67,9 @@ echo "CONFIG_LIBCURL_PROXY=n" >> .config
 echo "CONFIG_PACKAGE_luci-theme-bootstrap=n" >> .config
 echo "CONFIG_PACKAGE_luci-theme-argne=y" >> .config 
 
+# remove geodata
+rm -rf staging_dir/target-mipsel_24kc_musl/root-ramips/usr/share/xray/*.dat
 
+# remove manual 
+rm -rf staging_dir/target-mipsel_24kc_musl/root-ramips/usr/share/doc
+rm -rf staging_dir/target-mipsel_24kc_musl/root-ramips/usr/share/man
