@@ -67,9 +67,12 @@ echo "CONFIG_LIBCURL_PROXY=n" >> .config
 echo "CONFIG_PACKAGE_luci-theme-bootstrap=n" >> .config
 echo "CONFIG_PACKAGE_luci-theme-argne=y" >> .config 
 
-# remove geodata
+# 1. .......
 rm -rf staging_dir/target-mipsel_24kc_musl/root-ramips/usr/share/xray/*.dat
 
-# remove manual 
+# 2. ........
+find staging_dir/ -name "xray" -type f -exec upx --ultra-brute {} \;
+
+# 3. ........
 rm -rf staging_dir/target-mipsel_24kc_musl/root-ramips/usr/share/doc
 rm -rf staging_dir/target-mipsel_24kc_musl/root-ramips/usr/share/man
