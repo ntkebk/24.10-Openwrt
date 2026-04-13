@@ -68,28 +68,3 @@ echo "CONFIG_PACKAGE_luci-theme-bootstrap=n" >> .config
 echo "CONFIG_PACKAGE_luci-theme-argne=y" >> .config 
 
 
-# ====== Try to Disable by Force N ======
-# dns
-echo "CONFIG_PACKAGE_chinadns-ng=n" >> .config
-echo "CONFIG_PACKAGE_dns2socks=n" >> .config
-echo "CONFIG_PACKAGE_ipt2socks=n" >> .config
-echo "CONFIG_PACKAGE_tcping=n" >> .config
-echo "CONFIG_PACKAGE_microsocks=n" >> .config
-
-# Aggressively strip dependencies from PassWall Makefile
-# This stops PassWall from automatically re-selecting these packages
-sed -i 's/+chinadns-ng //g' feeds/passwall/luci-app-passwall/Makefile
-sed -i 's/+dns2socks //g' feeds/passwall/luci-app-passwall/Makefile
-sed -i 's/+ipt2socks //g' feeds/passwall/luci-app-passwall/Makefile
-sed -i 's/+tcping //g' feeds/passwall/luci-app-passwall/Makefile
-sed -i 's/+microsocks //g' feeds/passwall/luci-app-passwall/Makefile
-sed -i 's/+coreutils //g' feeds/passwall/luci-app-passwall/Makefile
-sed -i 's/+curl //g' feeds/passwall/luci-app-passwall/Makefile
-sed -i 's/+ip-full //g' feeds/passwall/luci-app-passwall/Makefile
-
-# Remove unused package directories to ensure a clean build
-rm -rf feeds/passwall_packages/chinadns-ng
-rm -rf feeds/passwall_packages/dns2socks
-rm -rf feeds/passwall_packages/ipt2socks
-rm -rf feeds/passwall_packages/tcping
-rm -rf feeds/passwall_packages/microsocks
