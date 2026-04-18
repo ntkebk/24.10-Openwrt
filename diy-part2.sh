@@ -66,3 +66,26 @@ echo "CONFIG_LIBCURL_PROXY=n" >> .config
 # Reduce the website size (use a lighter theme than the standard theme)
 echo "CONFIG_PACKAGE_luci-theme-bootstrap=n" >> .config
 echo "CONFIG_PACKAGE_luci-theme-argne=y" >> .config 
+
+
+
+
+# 
+echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_GeoIP=n" >> .config
+echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Geosite=n" >> .config
+
+#
+echo "CONFIG_PACKAGE_v2ray-geoip=n" >> .config
+echo "CONFIG_PACKAGE_v2ray-geosite=n" >> .config
+
+# 
+echo "CONFIG_PACKAGE_luci-light=n" >> .config
+
+# 
+echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Shadowsocks_Libev_Client=n" >> .config
+echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_ShadowsocksR_Libev_Client=n" >> .config
+echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=n" >> .config
+
+# 
+echo "CONFIG_PACKAGE_dnsmasq=n" >> .config
+echo "CONFIG_PACKAGE_dnsmasq-full=y" >> .config
