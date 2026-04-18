@@ -93,3 +93,28 @@ echo "CONFIG_PACKAGE_dnsmasq-full=y" >> .config
 
 echo "CONFIG_PACKAGE_chinadns-ng=n" >> .config
 echo "CONFIG_PACKAGE_dns2socks=n" >> .config
+
+
+
+
+
+
+
+# 1. 
+sed -i 's/+chinadns-ng//g' package/feeds/passwall/luci-app-passwall/Makefile
+sed -i 's/+dns2socks//g' package/feeds/passwall/luci-app-passwall/Makefile
+sed -i 's/+microsocks//g' package/feeds/passwall/luci-app-passwall/Makefile
+sed -i 's/+tcping//g' package/feeds/passwall/luci-app-passwall/Makefile
+
+# 2.
+sed -i 's/CONFIG_PACKAGE_luci-light=y/# CONFIG_PACKAGE_luci-light is not set/' .config
+sed -i 's/CONFIG_PACKAGE_coreutils=y/# CONFIG_PACKAGE_coreutils is not set/' .config
+sed -i 's/CONFIG_PACKAGE_coreutils-base64=y/# CONFIG_PACKAGE_coreutils-base64 is not set/' .config
+sed -i 's/CONFIG_PACKAGE_coreutils-nohup=y/# CONFIG_PACKAGE_coreutils-nohup is not set/' .config
+sed -i 's/CONFIG_PACKAGE_chinadns-ng=y/# CONFIG_PACKAGE_chinadns-ng is not set/' .config
+sed -i 's/CONFIG_PACKAGE_dns2socks=y/# CONFIG_PACKAGE_dns2socks is not set/' .config
+sed -i 's/CONFIG_PACKAGE_microsocks=y/# CONFIG_PACKAGE_microsocks is not set/' .config
+
+# 3. 
+sed -i 's/CONFIG_PACKAGE_luci-app-passwall_INCLUDE_GeoIP=y/# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_GeoIP is not set/' .config
+sed -i 's/CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Geosite=y/# CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Geosite is not set/' .config
