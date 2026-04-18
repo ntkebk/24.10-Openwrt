@@ -89,3 +89,7 @@ echo "CONFIG_PACKAGE_luci-app-passwall_INCLUDE_Trojan_Plus=n" >> .config
 # 
 echo "CONFIG_PACKAGE_dnsmasq=n" >> .config
 echo "CONFIG_PACKAGE_dnsmasq-full=y" >> .config
+
+
+echo "CONFIG_PACKAGE_chinadns-ng=n" >> .config
+echo "CONFIG_PACKAGE_dns2socks=n" >> .config
